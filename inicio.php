@@ -48,7 +48,7 @@
             echo "Por favor, complete todos los campos.";
         } else {
             // Preparar la consulta SQL para evitar inyecciones SQL
-            $stmt = $conn->prepare("SELECT * FROM usuarios WHERE usuario = ? AND password = ?");
+            $stmt = $con->prepare("SELECT * FROM usuarios WHERE usuario = ? AND password = ?");
             $stmt->bind_param("ss", $usuario, $password);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -69,7 +69,7 @@
         }
     }
 
-    $conn->close();
+    $con->close();
     ?>
 
     ?>
